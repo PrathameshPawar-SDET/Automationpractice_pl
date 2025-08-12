@@ -3,6 +3,7 @@ package com.ui.pages;
 import com.constant.Browser;
 import com.constant.Env;
 import com.utilities.BrowserUtility;
+import com.utilities.JSONUtils;
 import com.utilities.PropertiesUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,7 @@ public class HomePage extends BrowserUtility {
     private static final By SIGN_IN_LOCATOR= By.xpath("//a[contains(text(),'Sign in')]");
     public HomePage(Browser browser) {
         super(browser);
-        goToWebsite(PropertiesUtil.readProperty(Env.QA,"URL"));
+        goToWebsite(JSONUtils.readJson(Env.DEV).getUrl());
     }
 
     public LoginPage goToLoginPage(){
