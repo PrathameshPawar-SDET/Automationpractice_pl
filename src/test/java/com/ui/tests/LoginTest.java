@@ -13,8 +13,13 @@ public class LoginTest {
     public void setup(){
         homePage = new HomePage(Browser.CHROME);
     }
-    @Test(description = "Verifies with the valid user is able to login into application", groups = {"e2e","sanity"}, dataProviderClass = com.ui.dataprovider.LoginDataProvider.class,dataProvider = "LoginTestDataProvider")
-    public void loginTest(User user) throws InterruptedException {
+    @Test(description = "Verifies with the valid user is able to login into application using json file", groups = {"e2e","sanity"}, dataProviderClass = com.ui.dataprovider.LoginDataProvider.class,dataProvider = "LoginTestJSONDataProvider")
+    public void loginTestWithJSON(User user) throws InterruptedException {
+        Assert.assertEquals(homePage.goToLoginPage().doLoginWithValidCredential(user.getEmailaddress(), user.getPassword()).getUserName(),"Prathamesh Pawar");
+    }
+
+    @Test(description = "Verifies with the valid user is able to login into application using CSV file", groups = {"e2e","sanity"}, dataProviderClass = com.ui.dataprovider.LoginDataProvider.class,dataProvider = "LoginTestCSVDataProvider")
+    public void loginTestWithCSV(User user) throws InterruptedException {
         Assert.assertEquals(homePage.goToLoginPage().doLoginWithValidCredential(user.getEmailaddress(), user.getPassword()).getUserName(),"Prathamesh Pawar");
     }
 }

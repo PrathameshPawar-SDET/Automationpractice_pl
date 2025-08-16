@@ -4,6 +4,12 @@ public class User {
     private String emailaddress;
     private String password;
 
+    public User(String emailaddress, String password) {
+        super();
+        this.emailaddress=emailaddress;
+        this.password=password;
+    }
+
     public String getEmailaddress() {
         return emailaddress;
     }

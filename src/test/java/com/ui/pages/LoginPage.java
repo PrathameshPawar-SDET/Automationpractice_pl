@@ -16,8 +16,8 @@ public class LoginPage extends BrowserUtility {
     }
 
     public MyAccountPage doLoginWithValidCredential(String email, String password){
-    enterText(EMAIL_LOCATOR,"testbing@gmail.com");
-    enterText(PASSWORD_LOCATOR,"Password");
+    enterText(EMAIL_LOCATOR,email);
+    enterText(PASSWORD_LOCATOR,password);
     clickOn(SUBMIT_BUTTON_LOCATOR);
     MyAccountPage myAccountPage = new MyAccountPage(getDriver());
     return myAccountPage;
